@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Practical 1.1</title>
 </head>
+
 <body>
     <form action="#">
         <input type="text" name="color" class="color" value="white">
@@ -17,20 +19,20 @@
         let body = document.querySelector("body");
         let warning = document.querySelector(".warning");
 
-        //body.bgColor = "red";
-        function isColor(strColor){
+
+        function isColor(strColor) {
             var s = new Option().style;
             s.color = strColor;
             return s.color == strColor;
-          }
+        }
 
-        color.addEventListener('focusout', ()=>{
+        color.addEventListener('focusout', () => {
             let c_name = color.value;
-            if(isColor(c_name)){
+            if (isColor(c_name)) {
                 body.bgColor = c_name;
                 color.value = '';
             }
-            else{
+            else {
                 warning.innerHTML = 'Your enter value of color is not valid.';
                 body.bgColor = 'white';
                 color.value = 'white';
@@ -38,4 +40,5 @@
         });
     </script>
 </body>
+
 </html>

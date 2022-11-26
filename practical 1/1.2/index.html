@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practical 1.2</title>
+</head>
+<body>
+    <form action="#">
+        <input type="text" class="number" value="">
+    </form>
+
+    <script>
+        let number = document.querySelector('.number');
+        let body = document.querySelector('body');
+
+        number.addEventListener('keyup', ()=>{
+            
+            let value = number.value;
+            let l = value.length;
+
+            if(l == 10){
+                body.bgColor = 'white';
+                alert('You entered valid number.');
+            }
+            else {
+                body.bgColor = 'red';
+            }
+        });
+    </script>
+</body>
+</html>
