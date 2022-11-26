@@ -1,52 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Practical 2</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="box">
-        <img src="./img/img_1.jpg" alt="img" class="img">
+      <img src="./img/img_1.jpg" alt="img" class="img" />
     </div>
-    <button class="btn">Start</button>
-
+    <input type="text" class="time" placeholder="frequency">
+    <button class="btn">Stop</button>
 
     <script>
-        let img = document.querySelector('.img');
-        let btn = document.querySelector('.btn');
-        let n=0;
-        let arr = [1,2,3,4];
+      let img = document.querySelector(".img");
+      let btn = document.querySelector(".btn");
+      let n = 0;
+      let arr = [1, 2, 3, 4];
 
-        function animation(){
-            
-           const myInterval = setInterval(()=>{
-                if(n==3){
-                    n=0;
-                }
-                else n+=1;
+      let myInterval = setInterval(animation, 1000);
 
-                img.src = './img/img_'+arr[n]+'.jpg';
-                
-            },1000);
-
-            btn.addEventListener('click',()=>{
-                let value = btn.innerHTML;
-                if(value == 'Stop'){
-                    clearInterval(myInterval);    
-                    btn.innerHTML = 'Start';
-                }
-                else{
-                    btn.innerHTML = 'Stop';
-                    myInterval;
-                }
-            });
+      function animation() {
+        if (n == 3) {
+          n = 0;
+        } else {
+          n += 1;
         }
+        img.src = `./img/img_${arr[n]}.jpg`;
+      }
 
-        
+      function stopAnimation() {
+        clearInterval(myInterval);
+      }
 
-        animation();
+      btn.addEventListener("click", () => {
+        if (btn.innerHTML == "Stop") {
+          stopAnimation();
+          btn.innerHTML = "Start";
+        } else {
+          btn.innerHTML = "Stop";
+          myInterval = setInterval(animation, 1000);
+        }
+      });
     </script>
-</body>
+  </body>
 </html>
