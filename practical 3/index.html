@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practical 3</title>
+  </head>
+  <body>
+    <table class="info" border="1px">
+      <thead>
+        <tr>
+          <td>Name</td>
+          <td>Enrollment Number</td>
+        </tr>
+      </thead>
+      <tbody class="body"></tbody>
+    </table>
+
+    <script>
+      let tbody = document.querySelector(".body");
+      let tr = document.querySelector(".info thead tr");
+      var studentData;
+      var d = [];
+      let output = "";
+
+      function detail(data) {
+        studentData = data;
+        console.log(studentData);
+        data.forEach((element, index) => {
+          // console.log(element);
+          output += `
+              <tr>
+                <td>${element.name}</td>  
+                <td class='show${index}' onclick='show(${index})'>${element.Enrolllment_no}</td>
+              </tr>
+            `;
+        });
+        tbody.innerHTML = output;
+
+        let city = document.createElement("td");
+        city.innerHTML = "city";
+        let address = document.createElement("td");
+        address.innerHTML = "Address";
+        let pincode = document.createElement("td");
+        pincode.innerHTML = "Pincode";
+        tr.appendChild(city);
+        tr.appendChild(address);
+        tr.appendChild(pincode);
+      }
+
+      function show(index) {
+        // console.log(index);
+        if (index in d) {
+        } else {
+          d.push(index);
+          let detail = document.querySelector(`.show${index}`);
+          // console.log(studentData[index]);
+          let studentCity = document.createElement("td");
+          studentCity.innerHTML = studentData[index].city;
+          detail.parentNode.insertBefore(studentCity, detail.nextSibling);
+
+          let studentAddress = document.createElement("td");
+          studentAddress.innerHTML = studentData[index].address;
+          studentCity.parentNode.insertBefore(
+            studentAddress,
+            studentCity.nextSibling
+          );
+
+          let studentpincode = document.createElement("td");
+          studentpincode.innerHTML = studentData[index].pincode;
+          studentAddress.parentNode.insertBefore(
+            studentpincode,
+            studentAddress.nextSibling
+          );
+        }
+      }
+
+      fetch("/practical 3/students.json")
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          console.log(data);
+          detail(data);
+          // studentData = data;
+          // console.log(typeof(data));
+          // var studentData = data;
+        });
+    </script>
+  </body>
+</html>

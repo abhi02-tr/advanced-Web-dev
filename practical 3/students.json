@@ -1,0 +1,23 @@
+[
+    {
+        "name": "Abhi",
+        "Enrolllment_no": 1002,
+        "city": "Surat",
+        "address": "Sarthana",
+        "pincode": 395006
+    },
+    {
+        "name": "Dhaval",
+        "Enrolllment_no": 1022,
+        "city": "Valsad",
+        "address": "nowhere",
+        "pincode": 345026
+    },
+    {
+        "name": "Jyot",
+        "Enrolllment_no": 1047,
+        "city": "Valsad",
+        "address": "Goa",
+        "pincode": 305106
+    }
+]
