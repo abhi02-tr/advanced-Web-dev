@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>prcatical 7</title>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller='myCtrl'>
+        <label for="numA">Enter number A:</label>
+        <input type="text" ng-model="numA">
+        <br>
+
+        <label for="numB">Enter number B: </label>
+        <input type="text" ng-model="numB">
+        <br>
+
+        <button ng-click="add(numA, numB)">Add</button>
+
+        <p>Result: {{result}}</p>
+
+    </div>
+
+    <script>
+        let app = angular.module('myApp', []);
+        app.controller('myCtrl', ['$scope', 'func', function($scope, func) {
+            $scope.add = function(n1, n2){
+                $scope.result = func.add(n1, n2);
+            };
+        }]).
+        factory('func', function() {
+            this.add = function(n1, n2) {
+                return n1 + n2;
+            }
+        });
+    </script>
+</body>
+</html>
