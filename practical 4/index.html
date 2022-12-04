@@ -1,0 +1,75 @@
+<!-- order form -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>Practical 4</title>
+  </head>
+  <body>
+    <!-- ng-controller="myCtrl" -->
+    <div ng-app="">
+      <h2>Order form</h2>
+      <form>
+        <div class="food1">
+          <label for="pasta"> Pasta - 100rs.</label>
+          <input
+            type="checkbox"
+            ng-model="pasta"
+            id="pasta"
+            ng-true-value="100"
+            ng-false-value="0"
+          />
+        </div>
+
+        <div class="food1">
+          <label for="fries"> Fries - 150rs.</label>
+          <input
+            type="checkbox"
+            ng-model="fries"
+            id="fries"
+            ng-true-value="150"
+            ng-false-value="0"
+          />
+        </div>
+
+        <div class="food1">
+          <label for="pullav"> pullav - 200rs.</label>
+          <input
+            type="checkbox"
+            ng-model="pullav"
+            id="pullav"
+            ng-true-value="200"
+            ng-false-value="0"
+          />
+        </div>
+
+        <div class="food1">
+          <label for="manchurian"> manchurian - 90rs.</label>
+          <input
+            type="checkbox"
+            ng-model="manchurian"
+            id="manchurian"
+            ng-true-value="90"
+            ng-false-value="0"
+          />
+        </div>
+
+        <div class="food1">
+          <label for="soda"> soda - 40rs.</label>
+          <input
+            type="checkbox"
+            ng-model="soda"
+            id="soda"
+            ng-true-value="40"
+            ng-false-value="0"
+          />
+        </div>
+      </form>
+      <h1>Total : {{ pasta + fries + pullav + manchurian + soda + (((pasta + fries + pullav + manchurian + soda) * 18) /100)}}</h1>
+    </div>
+  </body>
+</html>
