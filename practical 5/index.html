@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practical 5</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app='myApp'>
+        <h2>check given number prime or not</h2>
+        <input type="text" ng-model="number">
+
+        <div class="result"><p>{{number | myFormat}}</p></div>
+    </div>
+
+    <script>
+        let app = angular.module('myApp', []);
+        app.filter('myFormat', function() {
+            return function(num) {
+                let n = parseInt(num);
+                let flag=0;
+                if(n==0 || n==1) return 'Can not say.';
+                for(let i=2; i<=n/2; i++){
+                    if(n%i == 0){
+                        flag=1;
+                        return 'not prime number';
+                    }
+                }
+                if(flag == 0){
+                    return 'Prime number';
+                }
+                return 'Can not say.';
+            };
+        });
+    </script>
+</body>
+</html>
