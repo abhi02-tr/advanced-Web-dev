@@ -18,6 +18,7 @@
         <br>
 
         <button ng-click="add(numA, numB)">Add</button>
+        <button ng-click="sub(numA, numB)">Sub</button>
 
         <p>Result: {{result}}</p>
 
@@ -25,16 +26,15 @@
 
     <script>
         let app = angular.module('myApp', []);
-        app.controller('myCtrl', ['$scope', 'func', function($scope, func) {
+        app.controller('myCtrl', ['$scope', function($scope) {
+            $scope.result = 0;
             $scope.add = function(n1, n2){
-                $scope.result = func.add(n1, n2);
+                $scope.result = parseInt(n1) + parseInt(n2);
             };
-        }]).
-        factory('func', function() {
-            this.add = function(n1, n2) {
-                return n1 + n2;
-            }
-        });
+            $scope.sub = (n1,n2) => {
+                $scope.result = parseInt(n1) - parseInt(n2);
+            };
+        }]);
     </script>
 </body>
 </html>

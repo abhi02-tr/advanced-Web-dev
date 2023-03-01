@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>p 9</title>
+  </head>
+  <body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+      <form action="#" class="form" name="form">
+        <input
+          type="password"
+          ng-model="pass"
+          ng-pattern="re"
+          name="pass"
+        />
+        <span ng-show="form.pass.$error.pattern" style="color: red">
+          Not valid password. </span
+        ><br />
+        <input type="password" name="con_pass" ng-model="con_pass" ng-pattern="re" ng-keyup="compare(con_pass)"/>
+        <span ng-show="isConfirm || form.con_pass.$dirty">
+            Password {{ isConfirm ? "": "not" }} match.
+        </span>
+      </form>
+    </div>
+
+    <script>
+        let app = angular.module('myApp', []);
+        app.controller('myCtrl', ($scope) => {
+            $scope.re = /^[0-9]\w{3,9}/;
+            $scope.compare = (pass) => {
+                $scope.isConfirm = ($scope.pass == pass) ? true : false;
+            };
+        });
+    </script>
+  </body>
+</html>

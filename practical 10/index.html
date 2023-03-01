@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>p 10</title>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <form action="#" name="form">
+            <div class="fname">
+                <span>Firstname: </span>
+                <input type="text" name="firstname" ng-model="fname" required>
+            </div>
+            <div class="lname">
+                <span>Lasttname: </span>
+                <input type="text" name="lastname" ng-model="lname" required>
+            </div>
+            <div class="email">
+                <span>Email: </span>
+                <input type="email" name="email" ng-model="email" required>
+            </div>
+            <div class="mobile_number">
+                <span>mobile number: </span>
+                <input type="text" name="number" ng-model="number" ng-pattern="nre">
+            </div>
+            <div class="gender">
+                <span>gender: </span>
+                <input type="radio" name="gender" ng-model="male" value="male"> Male
+                <input type="radio" name="gender" ng-model="female" value="female"> Female
+            </div>
+            <div class="department">
+                <span>Department: </span>
+                <select name="department" ng-model="department" ng-options="d for d in departments"></select>
+            </div>
+            <span ng-show="form.firstname.$valid && form.lastname.$valid && form.number.$valid && form.email.$valid && form.department.$modelValue"> <button>Submit</button> </span>
+        </form>
+    </div>
+    <script>
+        angular.module('myApp',[])
+        .controller('myCtrl', ($scope) => {
+            $scope.nre = /[0-9]{10}/;
+            $scope.departments = ['IT', 'ME', 'CP', 'CIVIL', 'FPT'];
+        });
+    </script>
+</body>
+</html>
