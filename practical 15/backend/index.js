@@ -14,4 +14,11 @@ app.use(express.json());
 
 app.use('/api', customerRouter);
 
-app.listen(port, ()=>{ console.log(`http://localhost:${port} in run.`); });
+mongoose.connect(monmgoUrl, {});
+const db = mongoose.connection;
+
+db.on('error', err => { console.error(err); });
+db.on('connected', () => {
+    console.log('db connected...');
+    app.listen(port, ()=>{ console.log(`http://localhost:${port} in run.`); });
+})

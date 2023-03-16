@@ -5,7 +5,6 @@ const fs = require('fs');
 const options = {
     maxFileSize: 2 * 1024
 };
-
 http.createServer((req, res) => {
     if(req.url == '/uploadFile') {
         let form = new formidable.IncomingForm(options);

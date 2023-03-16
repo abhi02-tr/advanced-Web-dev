@@ -4,3 +4,5 @@ router.route('/customer')
 .get(async (req, res) => {
     res.send('helloo');
 })
+
+module.exports = router;

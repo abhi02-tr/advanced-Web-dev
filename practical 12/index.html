@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>Practical -> 12</title>
+  </head>
+  <body>
+    <div ng-app="myApp">
+      <calculator></calculator>
+    </div>
+
+    <script>
+      angular.module("myApp", []).directive("calculator", function () {
+        return {
+          restrict: "E",
+          scope: {},
+          controller: function () {
+            var vm = this;
+            vm.result = 0;
+            vm.add = function () {
+              vm.result = parseInt(vm.a) + parseInt(vm.b);
+            };
+            vm.subtract = function () {
+                vm.result = parseInt(vm.a) - parseInt(vm.b);
+            };
+            vm.multiply = function () {
+                vm.result = parseInt(vm.a) * parseInt(vm.b);
+            };
+          },
+          controllerAs: "ctrl",
+          bindToController: true,
+          template: `
+      <div>
+        <h3>Calculator</h3>
+        <span>A: </span><input type="text" ng-model="ctrl.a">
+        <span>B: </span><input type="text" ng-model="ctrl.b">
+        <p>Result: {{ctrl.result}}</p>
+        <button ng-click="ctrl.add()">Add 2</button>
+        <button ng-click="ctrl.subtract()">Subtract 2</button>
+        <button ng-click="ctrl.multiply()">Multiply by 2</button>
+      </div>
+    `,
+        };
+      });
+    </script>
+  </body>
+</html>
