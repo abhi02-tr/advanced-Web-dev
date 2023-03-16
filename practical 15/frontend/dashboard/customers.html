@@ -10,13 +10,21 @@
       </tr>
     </thead>
     <tbody class="text-center allign-middle">
-        <tr>
-            <td>Abhi</td>
-            <td>abhi02.trivedi@gmail.com</td>
-            <td>2</td>
-            <td><div class="btn btn-primary w-100">Update</div></td>
-            <td><div class="btn btn-danger w-100">Delete</div></td>
-        </tr>
+      <tr>
+        <td>Abhi</td>
+        <td>abhi02.trivedi@gmail.com</td>
+        <td>2</td>
+        <td><div class="btn btn-primary w-100">Update</div></td>
+        <td><div class="btn btn-danger w-100">Delete</div></td>
+      </tr>
+      <tr ng-repeat="customer in customers">
+        <td>{{customer.name}}</td>
+        <td>{{customer.email}}</td>
+        <td>{{customer.order}}</td>
+        <td><div class="btn btn-primary w-100">Update</div></td>
+        <td><div class="btn btn-danger w-100">Delete</div></td>
+      </tr>
     </tbody>
   </table>
+  <!-- <p>{{ customers }}</p> -->
 </div>

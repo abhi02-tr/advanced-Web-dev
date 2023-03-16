@@ -80,6 +80,7 @@
           })
           .when("/customers", {
             templateUrl: "customers.html",
+            controller: "customer"
           });
       });
 
@@ -87,6 +88,16 @@
         $scope.line = function(temp) {
             console.log(temp);
         }
+      });
+
+      crm.controller('customer', function($scope, $http) {
+        $http.get("http://localhost:3000/api/customer")
+        .then(function (response) {
+          $scope.customers = response.data.data;
+        })
+        .catch(function(err){
+          console.log(err);
+        });
       });
     </script>
   </body>
